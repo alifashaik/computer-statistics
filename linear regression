@@ -1,0 +1,33 @@
+#linear regression
+import numpy as np
+import math
+import statistics
+x=np.array([16,21,26,23,28,24,17,22,21])
+y=np.array([33,38,50,39,52,47,35,43,41])
+xy=x*y
+xsq=pow(x,2)
+ysq=pow(y,2)
+sx=sum(x)
+sy=sum(y)
+sxy=sum(xy)
+sxsq=sum(xsq)
+sysq=sum(ysq)
+mx=statistics.mean(x)
+my=statistics.mean(y)
+print(mx,my)
+n=x.size
+covxy=(sxy/n)-mx*my
+print(covxy)
+sdx=math.sqrt(statistics.variance(x))
+print(sdx)
+sdy=math.sqrt(statistics.variance(y))
+print(sdy)
+r=covxy/(sdx*sdy)
+print(r)
+print('Regression line x on y')
+a=r*sdx/sdy
+print('x=(',a,')y','+(',mx-a*my,')')
+print('Regression line y on x')
+b=r*sdy/sdx
+print(b)
+print('y=(',b,')x','+(',my-a*mx,')')
