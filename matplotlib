@@ -1,0 +1,10 @@
+#graphs suing matplotlib
+import matplotlib.pyplot as plt
+w=np.linspace(1,10,2)
+print(w)
+t=np.linspace(10,20,2)
+print(t)
+print(t.shape,w.shape)
+plt.plot(t,w)
+#plt.show(t,w)
+plt.scatter(t,w)
