@@ -1,0 +1,19 @@
+#fitting a st.line
+import numpy as np
+import math
+x=np.array([1,2,3,4,6,8])
+y=np.array([2.4,3,3.6,4,5,6])
+sy=sum(y)
+sx=sum(x)
+xy=x*y
+sxy=sum(xy)
+xsq=x*x
+sxsq=sum(xsq)
+print(sx,sy,sxy,sxsq)
+n=x.size
+print(n)
+a=((sxsq*sy)-(sx*sxy))/(n*sxsq-pow(sx,2))
+print(a)
+b=(n*sxy-sx*sy)/(n*sxsq-pow(sx,2))
+print(b)
+print('y=(',a,')x+',b)
