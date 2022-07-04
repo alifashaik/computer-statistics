@@ -1,0 +1,6 @@
+a=np.array([110,100,140,120,80,90])
+b=np.array([70,60,80,90,10,20])
+t1=np.sort(a)[::-1]
+print(t1)
+t2=np.sort(b)[::-1]
+print(t2)
