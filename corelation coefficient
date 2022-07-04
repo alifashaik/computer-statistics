@@ -1,0 +1,19 @@
+import math
+x=np.array([3,7,4,2,0,4,1,2])
+y=np.array([11,18,9,4,7,6,3,8])
+mx=sum(x)/x.size
+my=sum(y)/y.size
+#print(my)
+m=x-mx
+#print(m)
+n=y-my
+mn=m*n
+msq=pow(m,2)
+nsq=pow(n,2)
+covxy=sum(mn)/x.size
+print('covarience',covxy)
+sdx=math.sqrt(sum(msq)/x.size)
+sdy=math.sqrt(sum(nsq)/y.size)
+print('variance of x and y ',sdx,sdy)
+r=covxy/(sdx*sdy)
+print('corelation cofficient is ',r)
