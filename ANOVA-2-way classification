@@ -1,0 +1,69 @@
+import numpy as np
+import math
+import scipy.stats as s
+def rowsum(treat):
+    sqti=0
+    for r in range(n):
+        ti=0
+        for i in range(c):
+            ti+=treat[r][i]
+        sqti+=pow(ti,2)
+    return sqti
+def colsum(treat):
+    bjsq=0
+    for j in range(c):
+        bj=0
+        for k in range(n):
+            bj+=treat[k][j]
+        bjsq+=pow(bj,2)
+    return bjsq
+def total(treat):
+    t=0
+    for i in range(n):
+        for j in range(c):
+            t+=treat[i][j]
+    return (t)
+def RSS(treat):
+    r=0
+    for i in range(n):
+        for j in range(c):
+            r+=pow(treat[i][j],2)
+    return (r)
+n=int(input("enter num of treatments : "))
+l=[]
+for i in range(n):
+    l.append(list(int(x) for x in input().split()))
+#print(l)
+c=len(l[0])
+los=float(input("los : "))
+treat=np.array(l)
+#print(len(treat))
+#print(c)
+ti=rowsum(treat)
+bj=colsum(treat)
+g=total(treat)
+rss=RSS(treat)
+cf=pow(g,2)/(n*c)
+st=rss-cf
+sstr=ti/c-cf
+sb=bj/n-cf
+se=st-sstr-sb
+mstr=sstr/(n-1)
+msb=sb/(c-1)
+mse=se/((n-1)*(c-1))
+ftr=mstr/mse
+fb=msb/mse
+#print(ftr,fb)
+#print(mstr,msb,mse)
+#print(cf,st,sstr,sb,se)
+tab=s.f.ppf(1-los,n,(n-1)*(c-1))
+print("inference related to treatments :")
+if ftr>tab:
+    print("no homoginity")
+else:
+    print("homogenous")
+print("inference related to blocks :")
+if fb>tab:
+    print("no homoginity")
+else:
+    print("homogenous")
